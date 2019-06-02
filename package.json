@@ -1,0 +1,28 @@
+{
+  "name": "addbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "truffle-contract": "^4.0.17",
+    "truffle-default-builder": "^2.0.0",
+    "web3": "^1.0.0-beta.37"
+  },
+  "devDependencies": {
+    "bignumber.js": "^8.1.1",
+    "ganache-cli": "^6.4.3",
+    "lite-server": "^2.5.3",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:w": "mocha --watch",
+    "predev": "node ./app/javascripts/deploy.js",
+    "dev": "lite-server"
+  },
+  "author": "",
+  "license": "ISC"
+}

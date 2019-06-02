@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WE DIARY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="container">
+
+    <div class="page-header">
+        <h1>WE DIARY<small> a dapp for diary</small></h1>
+    </div>
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#sectionA" data-toggle="tab" id="home_tab">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"> 日记平台</span></a></li>
+        <li role="presentation"><a href="#sectionB" data-toggle="tab" id="diary_tab">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true" > 我的日记</span></a></li>
+    </ul>
+    <div class="tab-content" style="margin-top: 10px">
+        <div id="sectionA" class="tab-pane fade in active">
+            <div class="panel panel-info margin-top-1">
+                <!-- Default panel contents -->
+                <div class="panel-heading text-center">平台信息</div>
+                <!-- Table -->
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>平台地址</td>
+                            <td id="plantFromAccount"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>平台打赏</td>
+                            <td id="plantFromBalance"></td>
+                            <td>
+                                <a href="#identifier" data-toggle="tab" id="onwer">我是平台主人！取走打赏</a>
+                            </td>
+                        </tr>
+                        <td></td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <input type="text" class="form-control" placeholder="reward:(ether)" id="amount">
+                            </div>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-info" id="reward">支持一下</button>
+                            </div>
+                        </td>
+                        <td></td>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading text-center">已注册的用户</div>
+                <!-- Table -->
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>Address</th>
+                        </tr>
+                        <tbody id="userList">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading text-center">注册账户</div>
+                <!-- Table -->
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td style="vertical-align: middle">name</td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="name" id="d_name">
+                            </td>
+                        </tr>
+                        <td style="vertical-align: middle"> address</td>
+                        <td>
+                            <input type="text" class="form-control" disabled
+                                placeholder="just click submit,you can get a address" id="d_address">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-info" id="submit">提交</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div id="sectionB" class="tab-pane fade ">
+            <div class="panel panel-default panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading text-center">账户信息</div>
+                <!-- Table -->
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>昵称</td>
+                            <td id="nickName"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>账户地址</td>
+                            <td id="myAddress"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>我的打赏</td>
+                            <td id="totalReward"></td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-info" id="myReward">取回打赏</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="panel panel-default panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading text-center">写日记</div>
+                <!-- Table -->
+
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="name">内容：</label>
+                            <textarea class="form-control" rows="10" id="content"></textarea>
+                        </div>
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button type="button" class="btn btn-info" id="writeNow">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="panel panel-default panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading text-center">我的日记</div>
+                <!-- Table -->
+                <divc class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>id</td>
+                            <td>content</td>
+                            <td>timestamp</td>
+                        </tr>
+                        <tbody id="diaryContentList"></tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="/truffle-contract.js"></script>
+    <script src="/address.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
