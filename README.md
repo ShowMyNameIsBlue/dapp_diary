@@ -1,2 +1,2 @@
 # dapp_diary
-a dapp demol
+a dapp demo
